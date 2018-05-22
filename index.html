@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>情说杂志-列表</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<header>
+		<div class="top">
+			<img src="images/logo_top.png">
+		</div>
+	</header>
+	<section>
+		<nav>
+			<a href="magazine_upload.html">杂志上传</a>
+			<a href="javascript:;" class="active">杂志管理</a>
+		</nav>
+
+		<article>
+			<ul class="magazine_ul">
+				<li>
+					<div class="left">
+						<img src="http://www.yyweishi.com/uploads/allimg/140323/010H92234-16.jpg">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<img src="http://img.besoo.com/file/201705/25/1050098545908.png">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<img src="http://att.bbs.duowan.com/forum/201411/09/152152z6vxvha6kmkwokx6.jpg">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<img src="http://p1.qzone.la/upload/3/ds9pypet.jpg">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<img src="http://tx.haiqq.com/uploads/allimg/170916/0U50GX8-4.jpg">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<img src="http://img5q.duitang.com/uploads/item/201412/09/20141209111644_tUEhr.jpeg">
+					</div>
+					<div class="right">
+						<a href="javascript:;">删除</a>
+						<a href="javascript:;">编辑</a>
+					</div>
+					<div class="center">
+						<p class="title">每天我都在这里说故事</p>
+						<p class="type">情感杂志</p>
+						<p>
+							<span class="time">今天23:00</span>
+							<span class="glance_over">2030浏览</span>
+						</p>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 分页 -->
+			<div class="page_box">
+				<ul id="pageCont"></ul>
+			</div>
+		</article>
+	</section>
+	
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+	<script type="text/javascript">
+		// 分页
+		$('#pageCont').jqPaginator({
+		    totalPages: 100,
+		    visiblePages: 5,
+		    currentPage: 1,
+		    first: '<li class="first"><a href="javascript:;">首页</a></li>',
+	        prev: '<li class="prev"><a href="javascript:;">＜</a></li>',
+	        next: '<li class="next"><a href="javascript:;">＞</a></li>',
+	        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+	        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+		    onPageChange: function (num, type) {
+		        console.log(num)
+		    }
+		});
+	</script>
+</body>
+</html>

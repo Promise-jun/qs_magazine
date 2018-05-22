@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+$mainTitle: #303030;  //主标题
+$fuTitle: #696969;    //副标题
+$ciTitle: #919191;    //次标题
+$mainColor: #FF5A1C;  //主色
+$fuColor: #FD7A60;    //副色
+$bgColor: #f9f9f9;    //背景色
+
+
+/* ==== css reset ==== */
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "Lantinghei SC","PingFang SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+select,
+input {
+    vertical-align: middle;
+}
+
+select,
+input,
+textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    outline-style: none;
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+body {
+    /*font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,PingFang SC,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;*/
+    font-family: PingFangSC-Medium, "Lantinghei SC","PingFang SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #F9F9F9;
+    // -webkit-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+header {
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	& .top {
+		width: 1200px;
+		height: 100%;
+		margin: 0 auto;
+	}
+	& img {
+		display: block;
+		padding-top: 10px;
+	}
+}
+
+section {
+	width: 1200px;
+	margin: 0 auto;
+	padding-top: 80px;
+	overflow: hidden;
+}
+
+nav {
+	// float: left;
+	position: fixed;
+	width: 140px;
+	background-color: #fff;
+	padding: 15px 0;
+	border-radius: 8px;
+	& a {
+		display: block;
+		height: 24px;
+		line-height: 24px;
+		margin: 13px 0;
+		padding-left: 52px;
+		border-left: 3px solid #fff;
+		font-size: 14px;
+		color: #9FA8BC;
+		letter-spacing: 0.47px;
+		background-repeat: no-repeat;
+		background-position: 25px center;
+	}
+	& a:first-child {
+		background-image: url('../images/icon_uploading_gray.png');
+		background-size: 17px auto;
+	}
+	& a:last-child {
+		background-image: url('../images/icon_administration_and_management_gray.png');
+		background-size: 17px auto;
+	}
+	& a.active {
+		color: $mainTitle;
+		border-color: $mainColor;
+	}
+	& a:first-child.active {
+		background-image: url('../images/icon_uploading.png');
+		background-size: 17px auto;
+	}
+	& a:last-child.active {
+		background-image: url('../images/icon_administration_and_management.png');
+		background-size: 17px auto;
+	}
+}
+
+article {
+	width: 1040px;
+	margin-left: 160px;
+	& .magazine_ul {
+		width: 100%;
+		padding: 0 40px;
+		background-color: #fff;
+		border-radius: 8px;
+		& li:first-child {
+			padding-top: 30px;
+		}
+		& li:not(:first-child) {
+			border-top: 1px solid #D7D7D7;
+		}
+		& li {
+			padding: 40px 0;
+			overflow: hidden;
+		}
+	}
+	& .left {
+		float: left;
+		width: 90px;
+		height: 90px;
+		overflow: hidden;
+		border-radius: 8px;
+		& img {
+			width: 100%;
+		}
+	}
+	& .right {
+		float: right;
+		width: 144px;
+		height: 90px;
+		line-height: 90px;
+		font-size: 0;
+		& a {
+			font-size: 20px;
+			color: $ciTitle;
+			letter-spacing: 0.89px;
+		}
+		& a:first-child {
+			margin-right: 60px;
+		}
+	}
+	& .center {
+		margin: 0 162px 0 108px;
+		height: 90px;
+		& .title {
+			font-size: 18px;
+			color: $mainTitle;
+			letter-spacing: 0.8px;
+		}
+		& .type {
+			padding: 6px 0 13px;
+			font-size: 16px;
+			color: $ciTitle;
+			letter-spacing: 0.71px;
+		}
+		& p:last-child {
+			font-size: 14px;
+			color: $ciTitle;
+			letter-spacing: 0.62px;
+		}
+		& .time {
+			margin-right: 10px;
+		}
+	}
+	// 分页
+	& .page_box {
+		padding: 50px 0;
+		& ul {
+			overflow: hidden;
+			padding-left: 160px;
+		}
+		& li {
+			float: left;
+			margin-left: 20px;
+			width: 60px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background: #DCDCDC;
+			border-radius: 4px;
+			& a {
+				font-size: 16px;
+				color: $mainTitle;
+				letter-spacing: 0.53px;
+			}
+		}
+		& li.active,
+		& li:hover {
+			background: $fuColor;
+			& a {
+				color: #fff;
+			}
+		}
+	}
+}
