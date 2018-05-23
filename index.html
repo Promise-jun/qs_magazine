@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>情说杂志-列表</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/simpleAlert.css">
 </head>
 <body>
 	<header>
@@ -24,7 +25,7 @@
 						<img src="http://www.yyweishi.com/uploads/allimg/140323/010H92234-16.jpg">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -41,7 +42,7 @@
 						<img src="http://img.besoo.com/file/201705/25/1050098545908.png">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -52,13 +53,14 @@
 							<span class="glance_over">2030浏览</span>
 						</p>
 					</div>
+					<div class="Auditing">审核中</div>
 				</li>
 				<li>
 					<div class="left">
 						<img src="http://att.bbs.duowan.com/forum/201411/09/152152z6vxvha6kmkwokx6.jpg">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -69,13 +71,14 @@
 							<span class="glance_over">2030浏览</span>
 						</p>
 					</div>
+					<div class="Auditing">审核中</div>
 				</li>
 				<li>
 					<div class="left">
 						<img src="http://p1.qzone.la/upload/3/ds9pypet.jpg">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -92,7 +95,7 @@
 						<img src="http://tx.haiqq.com/uploads/allimg/170916/0U50GX8-4.jpg">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -106,10 +109,10 @@
 				</li>
 				<li>
 					<div class="left">
-						<img src="http://img5q.duitang.com/uploads/item/201412/09/20141209111644_tUEhr.jpeg">
+						<img src="http://img4.duitang.com/uploads/item/201504/06/20150406H3041_2di8s.jpeg">
 					</div>
 					<div class="right">
-						<a href="javascript:;">删除</a>
+						<a href="javascript:;" onclick="delMagazine($(this))">删除</a>
 						<a href="javascript:;">编辑</a>
 					</div>
 					<div class="center">
@@ -132,21 +135,40 @@
 	
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+	<script type="text/javascript" src="js/simpleAlert.js"></script>
 	<script type="text/javascript">
-		// 分页
-		$('#pageCont').jqPaginator({
-		    totalPages: 100,
-		    visiblePages: 5,
-		    currentPage: 1,
-		    first: '<li class="first"><a href="javascript:;">首页</a></li>',
-	        prev: '<li class="prev"><a href="javascript:;">＜</a></li>',
-	        next: '<li class="next"><a href="javascript:;">＞</a></li>',
-	        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
-	        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
-		    onPageChange: function (num, type) {
-		        console.log(num)
-		    }
-		});
+		$(function() {
+			// 分页
+			$('#pageCont').jqPaginator({
+			    totalPages: 100,
+			    visiblePages: 5,
+			    currentPage: 1,
+			    first: '<li class="first"><a href="javascript:;">首页</a></li>',
+		        prev: '<li class="prev"><a href="javascript:;">＜</a></li>',
+		        next: '<li class="next"><a href="javascript:;">＞</a></li>',
+		        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+		        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+			    onPageChange: function (num, type) {
+			        console.log(num)
+			    }
+			});
+		})
+
+		function delMagazine($obj) {
+			var dblChoseAlert = simpleAlert({
+	            "title":"删除提示",
+	            "content":"您确认要删除该杂志吗?",
+	            "buttons":{
+	                "确定":function () {
+	                    $obj.parents('li').remove();
+	                    dblChoseAlert.close();
+	                },
+	                "取消":function () {
+	                    dblChoseAlert.close();
+	                }
+	            }
+	        })
+		}
 	</script>
 </body>
 </html>

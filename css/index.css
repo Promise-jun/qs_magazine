@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==== css reset ==== */
 html,
 body,
@@ -54,7 +55,7 @@ ol {
 input {
   padding-top: 0;
   padding-bottom: 0;
-  font-family: "Lantinghei SC","PingFang SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Lantinghei SC", "PingFang SC", "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 input::-moz-focus-inner {
@@ -91,7 +92,7 @@ table {
 
 body {
   /*font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,PingFang SC,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;*/
-  font-family: PingFangSC-Medium, "Lantinghei SC","PingFang SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: PingFangSC-Medium, "Lantinghei SC", "PingFang SC", "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #F9F9F9;
 }
 
@@ -184,7 +185,7 @@ article .magazine_ul li:not(:first-child) {
 }
 article .magazine_ul li {
   padding: 40px 0;
-  overflow: hidden;
+  position: relative;
 }
 article .left {
   float: left;
@@ -234,6 +235,19 @@ article .center p:last-child {
 article .center .time {
   margin-right: 10px;
 }
+article .Auditing {
+  width: 86px;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 18px;
+  background: url("../images/icon_ audit_bg.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: -40px;
+  font-size: 14px;
+  color: #fff;
+}
 article .page_box {
   padding: 50px 0;
 }
@@ -261,6 +275,478 @@ article .page_box li.active, article .page_box li:hover {
 }
 article .page_box li.active a, article .page_box li:hover a {
   color: #fff;
+}
+article aside {
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+article aside .title {
+  padding: 19px 40px;
+  font-size: 16px;
+  color: #303030;
+  letter-spacing: 0.53px;
+  border-bottom: 1px solid #D7D7D7;
+}
+article aside > ul {
+  padding-top: 40px;
+}
+article aside > ul .list {
+  float: left;
+  position: relative;
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+article aside > ul .list .must {
+  position: absolute;
+  top: 17px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF5A1C;
+}
+article aside > ul .list input[name="magazine_title"] {
+  margin-left: 26px;
+  padding: 0 20px;
+  width: 774px;
+  height: 40px;
+  background: #F9F9F9;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #303030;
+  letter-spacing: 0.22px;
+}
+article aside #editor {
+  width: 774px;
+  margin-left: 26px;
+}
+article aside .add_pic {
+  margin-left: 26px;
+  display: block;
+  width: 250px;
+  height: 250px;
+  background-color: #F9F9F9 !important;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  text-align: center;
+  background: url("../images/icon_personal_data_add.png") no-repeat center 63px;
+  background-size: 40px auto;
+  font-size: 12px;
+  color: #919191;
+  letter-spacing: 0.4px;
+  line-height: 20px;
+}
+article aside .add_pic p:first-child {
+  padding-top: 115px;
+  padding-bottom: 6px;
+  font-size: 14px;
+  color: #303030;
+  letter-spacing: 0.47px;
+}
+article aside .pic_box {
+  display: none;
+  float: left;
+  width: 250px;
+  height: 250px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #fff !important;
+}
+article aside .pic_box .change_pic_box {
+  display: none;
+  width: 250px;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+article aside .pic_box .change_pic {
+  display: inline-block;
+  margin-top: 90px;
+  padding-top: 52px;
+  background: url("../images/icon_personal_data_orange.png") no-repeat top center;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0.23px;
+}
+article .publish {
+  display: block;
+  margin: 40px 0 53px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #FD7A60;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0.44px;
+}
+
+.clearfix::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.wd-100 {
+  width: 100%;
+}
+
+.wd-30 {
+  width: 30%;
+}
+
+/*上传封面*/
+.popup_windows_title {
+  font-size: 18px;
+  color: #FF5A1C;
+  letter-spacing: 0;
+  position: relative;
+  top: 25px;
+}
+
+.close_cover-wrap {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 30px;
+  top: 4px;
+  background: url("../images/icon_close.png") no-repeat center;
+  background-size: 16px auto;
+}
+
+.cover-wrap {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10000000;
+  text-align: center;
+}
+
+.cover-wrap > div {
+  width: 500px;
+  height: 490px;
+  margin: 10% auto;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#clipArea {
+  width: 350px;
+  height: 316px;
+  margin: 50px auto 0;
+}
+
+.cover_wrap_btns a {
+  display: inline-block;
+  margin-top: 25px;
+  width: 150px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 14px;
+  letter-spacing: 0;
+  background: #FD7A60;
+  color: #FFFFFF;
+}
+
+.cover_wrap_btns a:hover {
+  text-decoration: none;
+}
+
+/**
+ * Variables
+ */
+/**
+ * Wrapper
+ */
+.combo-select {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background: #F9F9F9;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+  margin-left: 26px;
+}
+
+.combo-select .combo-input {
+  margin-bottom: 0;
+  background: #F9F9F9;
+  padding: 12px 30px 12px 20px;
+}
+
+.combo-select input {
+  border: 0;
+  width: 100%;
+}
+
+/**
+ * Input field
+ */
+.combo-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  padding-right: 60px;
+  border-radius: 3px;
+}
+
+.combo-input:focus {
+  outline: none;
+}
+
+/**
+ * Arrow
+ */
+.combo-arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  width: 40px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.combo-arrow:before {
+  content: " ";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #cccccc;
+  display: block;
+  width: 0;
+  height: 0;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  position: absolute;
+  margin: auto 0;
+}
+
+/**
+ * When opened
+ */
+.combo-open .combo-arrow {
+  border-color: #51A7E8;
+}
+
+.combo-open .combo-arrow:before {
+  border-top: none;
+  border-bottom: 5px solid #cccccc;
+}
+
+/**
+ * When focused
+ */
+.combo-focus {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-color: #51A7E8;
+}
+
+.combo-focus input {
+  border-color: #51A7E8;
+}
+
+/**
+ * Hide native select
+ */
+.combo-select select {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-appearance: none;
+  opacity: 0;
+}
+
+@media only screen and (min-width: 960px) {
+  .combo-select select {
+    left: -1px;
+    top: -1px;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+}
+/**
+ * Selected option
+ */
+.option-selected {
+  background-color: #eee;
+}
+
+/**
+ * Hovered option
+ */
+.option-hover {
+  background-color: #FD7A60;
+  color: #fff;
+}
+
+/**
+ * Option item
+ */
+.option-item {
+  cursor: pointer;
+  border-bottom: 1px #e3e3e3 solid;
+}
+
+.option-item:hover {
+  background-color: #FD7A60;
+  color: #fff;
+}
+
+.option-item:last-child {
+  border-bottom: none;
+}
+
+/**
+ * Disabled and optgroups
+ */
+.option-group {
+  cursor: text;
+  font-weight: 600;
+  background: #e1e1e1;
+  border: 1px #ccc solid;
+  border-width: 1px 0;
+}
+
+/**
+ * Disabled
+ */
+.option-disabled {
+  opacity: 0.5;
+}
+
+/**
+ * Dropdown
+ */
+.combo-dropdown {
+  position: absolute;
+  z-index: 99999;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  display: none;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #999999;
+  border-radius: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-sizing: border-box;
+}
+
+.combo-dropdown li {
+  list-style: none;
+  padding: 8px 1em;
+  margin: 0;
+}
+
+/**
+ * On Active
+ */
+.combo-open .combo-dropdown {
+  display: block;
+}
+
+/**
+ * Search marker
+ */
+.combo-marker {
+  text-decoration: underline;
+}
+
+/*套餐审核*/
+.package_audit {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 66666;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.audit_cont {
+  width: 800px;
+  height: 320px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -200px;
+}
+
+.audit_cont .title {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  background-color: #70ADD0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.audit_cont .title a {
+  font-size: 32px;
+  color: #fff;
+  position: absolute;
+  right: 15px;
+}
+
+.audit_cont .title a:hover {
+  text-decoration: none;
+}
+
+.audit_pic {
+  padding: 0 !important;
+}
+
+.audit_pic img {
+  display: block;
+  margin: 7px auto;
+  width: 90px;
+  height: 90px;
+}
+
+.audit_btns button:first-child {
+  margin-right: 50px;
 }
 
 /*# sourceMappingURL=index.css.map */
