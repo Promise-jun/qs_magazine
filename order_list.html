@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>情说订单-列表</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/simpleAlert.css">
+</head>
+<body>
+	<header>
+		<div class="top">
+			<img src="images/logo_top.png">
+		</div>
+	</header>
+	<section>
+		<nav>
+			<a href="magazine_upload.html">杂志上传</a>
+			<a href="index.html">杂志管理</a>
+			<a href="javascript:;" class="active">订单列表</a>
+		</nav>
+
+		<article>
+			<!-- 分类 -->
+			<div class="classify">
+				<a href="javascript:;" class="active">全部（44）</a>
+				<a href="javascript:;">待付款（3）</a>
+				<a href="javascript:;">待确认（1）</a>
+				<a href="javascript:;">待服务（10）</a>
+				<a href="javascript:;">退款中（1）</a>
+				<a href="javascript:;">待评价（20）</a>
+				<a href="javascript:;">已完成（9）</a>
+			</div>
+			<!-- 列表标题 -->
+			<ul class="all_list list_title">
+				<li>内容</li>
+				<li>来源</li>
+				<li>单价</li>
+				<li>模式</li>
+				<li>实付款</li>
+				<li>交易状态</li>
+				<li>交易操作</li>
+			</ul>
+			<!-- 订单类型 -->
+			<div class="order_type">
+				<p class="active"><span class="icon"></span><span>全部</span></p>
+				<p><span class="icon"></span><span>立即咨询</span></p>
+				<p><span class="icon"></span><span>预约咨询</span></p>
+				<p><span class="icon"></span><span>套餐咨询</span></p>
+			</div>
+			<!-- 列表内容 -->
+			<div class="list_box">
+						
+			</div>
+
+			<!-- 分页 -->
+			<div class="page_box">
+				<ul id="pageCont"></ul>
+			</div>
+		</article>
+	</section>
+	
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+	<script type="text/javascript" src="js/simpleAlert.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			getData(); //拉取数据
+			// 点击分类
+			$('.classify a').on('click', function() {
+				$(this).addClass('active').siblings('a').removeClass('active');
+				getData(); //拉取数据
+			})
+			// 点击类型
+			$('.order_type p').on('click', function() {
+				$(this).addClass('active').siblings('p').removeClass('active');
+				getData(); //拉取数据
+			})
+			// 分页
+			$('#pageCont').jqPaginator({
+			    totalPages: 100,
+			    visiblePages: 5,
+			    currentPage: 1,
+			    first: '<li class="first"><a href="javascript:;">首页</a></li>',
+		        prev: '<li class="prev"><a href="javascript:;">＜</a></li>',
+		        next: '<li class="next"><a href="javascript:;">＞</a></li>',
+		        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+		        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+			    onPageChange: function (num, type) {
+			        console.log(num)
+			    }
+			});
+			
+		})
+		//取列表数据
+		function getData() {
+			$.ajax({
+				type: 'get',
+				url: "./mock/list.json",
+				dataType: "json"
+			}).done(function(res) {
+				var divs = orderListHtml(res);
+				$('.list_box').html(divs);
+			}).fail(function(err) {
+				console.log(err)
+			})
+		}
+		//订单列表html
+		function orderListHtml(data) {
+			var str = '';
+			$.each(data, function(index, item) {
+				str += '<div><p class="order_top">';
+				str += '<span>订单号：'+item.orderId+'</span><span>'+item.time+'</span></p>';
+				str += '<ul class="all_list order_cont"><li><div class="pic">';
+				str += '<img src="'+item.pic+'" alt=""></div>';
+				str += '<div class="info"><p class="name">'+item.name+'</p>';
+				str += '<p class="data"><span>'+item.type+'</span><span>'+item.timeLen+'</span></p></div></li>';
+				if (item.fromId == 0) {
+					str += '<li class="tmall">'+item.fromName+'</li>';
+				} else if (item.fromId == 1) {
+					str += '<li>'+item.fromName+'</li>';
+				}
+				str += '<li>'+item.price+'</li><li>'+item.linkWay+'</li><li class="totalPrice">'+item.payMent+'</li>';
+				str += '<li class="deal_state"><p>'+item.stateName+'</p>';
+				str += '<a href="javascript:;">订单详情</a></li>';
+				str += '<li>';
+				if (item.stateId == 0) { //待付款
+					str += '<a href="javascript:;" onclick="changePrice($(this))" class="change_btn">改价</a>';
+				} else if (item.stateId == 1) { //待确认
+					str += '<a href="javascript:;" onclick="confirmOrder($(this))" class="confirm_btn">确认订单</a>';
+				} else if (item.stateId == 2) { //待服务
+					str += '<a href="javascript:;" class="submit_btn">提交咨询记录</a>';
+				} else if (item.stateId == 4) { //待评价
+					// str += '<a href="javascript:;" class="appraise_btn">评价</a>';
+				}
+				str += '</li></ul></div>';
+			})
+			return str;
+		}
+		//修改价格
+		function changePrice($obj) {
+			var totalPrice = $obj.parents('.order_cont').find('.totalPrice').text(); //原来的价格
+			var dblChoseAlert = simpleAlert({
+	            "title":"订单改价",
+	            "content": "<span class='classify_box'><label for='totalPrice'>原　价：</label><input disabled type='text' id='totalPrice' value='"+totalPrice+"' /></span><span class='content_box'><label for='nowPrice'>修改为：</label><input type='text' id='nowPrice' /></span>",
+	            "buttons":{
+	                "提交":function () {
+	                	var nowPrice = $('#nowPrice').val();
+	                	if (nowPrice == '') {
+	                		alertTool('价格不能为空！');
+	                	} else {
+	                		dblChoseAlert.close();
+	                	}
+	                }
+	            }
+	        })
+		}
+		//确认订单
+		function confirmOrder($obj) {
+			var dblChoseAlert = simpleAlert({
+	            "title":"订单确认",
+	            "content": "确定要确认此订单吗？",
+	            "buttons":{
+	                "确认":function () {
+	                	var onlyChoseAlert = simpleAlert({
+					        "content": "订单确认成功！",
+					        "buttons": {
+					            "确定": function() {
+					                onlyChoseAlert.close();
+					                dblChoseAlert.close();
+					            }
+					        }
+					    })
+	                },
+	                "取消":function () {
+	                	dblChoseAlert.close();
+	                }
+	            }
+	        })
+		}
+
+		function alertTool(text) {
+			var onlyChoseAlert = simpleAlert({
+		        "content": text,
+		        "buttons": {
+		            "确定": function() {
+		                onlyChoseAlert.close();
+		            }
+		        }
+		    })
+		}
+	</script>
+</body>
+</html>

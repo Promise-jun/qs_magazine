@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>情说杂志-列表</title>
+	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/simpleAlert.css">
 </head>
@@ -16,6 +18,7 @@
 		<nav>
 			<a href="javascript:;" class="active">杂志上传</a>
 			<a href="index.html">杂志管理</a>
+			<a href="order_list.html">订单列表</a>
 		</nav>
 		<article>
 			<aside>
@@ -36,13 +39,13 @@
 					</li>
 					<li class="list wd-30">
 						<span class="must"></span>
-						<select id="magazineField">
-							<option value="">选择杂志领域</option>
-							<option value="杂志领域1">杂志领域1</option>
-							<option value="杂志领域2">杂志领域2</option>
-							<option value="杂志领域3">杂志领域3</option>
-							<option value="杂志领域4">杂志领域4</option>
-							<option value="杂志领域5">杂志领域5</option>
+						<select id="magazineField" class="selectpicker bla bla bli" multiple data-live-search="true" title="选择杂志领域">
+							<option>杂志领域1</option>
+							<option>杂志领域2</option>
+							<option>杂志领域3</option>
+							<option>杂志领域4</option>
+							<option>杂志领域5</option>
+							</optgroup>
 						</select>
 					</li>
 				</ul>
@@ -93,6 +96,8 @@
 	</section>
 	
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 	<script type="text/javascript" src="js/jquery.combo.select.js"></script>
 	<script type="text/javascript" src="js/wangEditor.min.js"></script>
 	<script type="text/javascript" src="js/iscroll-zoom.js"></script>
@@ -102,7 +107,10 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#magazineType').comboSelect();
-			$('#magazineField').comboSelect();
+			$('#magazineField').selectpicker({
+                'selectedText': 'cat'
+            });
+            
 
 			// wangEditor
 			var E = window.wangEditor;

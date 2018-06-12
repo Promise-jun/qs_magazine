@@ -17,8 +17,9 @@
 .simpleAlertBody {
     position: fixed;
     display: none;
-    width: 476px;
-    height: 216px;
+    min-width: 476px;
+    min-height: 216px;
+    height: auto;
     top: 50%;
     left: 50%;
     margin: -188px 0 0 -238px;
@@ -57,12 +58,10 @@
 }
 
 .simpleAlertBodyContent {
-    position: absolute;
-    top: 35%;
-    width: 96%;
-    height: 48px;
+    margin: 70px 0;
+    width: 100%;
+    min-height: 48px;
     overflow-y: auto;
-    left: 2%;
     text-align: center;
     font-size: 16px;
     color: #696969;
