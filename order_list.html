@@ -121,14 +121,14 @@
 				}
 				str += '<li>'+item.price+'</li><li>'+item.linkWay+'</li><li class="totalPrice">'+item.payMent+'</li>';
 				str += '<li class="deal_state"><p>'+item.stateName+'</p>';
-				str += '<a href="javascript:;">订单详情</a></li>';
+				str += '<a href="order_detail.html">订单详情</a></li>';
 				str += '<li>';
 				if (item.stateId == 0) { //待付款
 					str += '<a href="javascript:;" onclick="changePrice($(this))" class="change_btn">改价</a>';
 				} else if (item.stateId == 1) { //待确认
 					str += '<a href="javascript:;" onclick="confirmOrder($(this))" class="confirm_btn">确认订单</a>';
 				} else if (item.stateId == 2) { //待服务
-					str += '<a href="javascript:;" class="submit_btn">提交咨询记录</a>';
+					str += '<a href="order_detail.html" class="submit_btn">提交咨询记录</a>';
 				} else if (item.stateId == 4) { //待评价
 					// str += '<a href="javascript:;" class="appraise_btn">评价</a>';
 				}

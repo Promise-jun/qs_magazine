@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>情说订单-详情</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/simpleAlert.css">
+</head>
+<body>
+	<header>
+		<div class="top">
+			<img src="images/logo_top.png">
+		</div>
+	</header>
+	<section>
+		<nav>
+			<a href="magazine_upload.html">杂志上传</a>
+			<a href="index.html">杂志管理</a>
+			<a href="order_list.html" class="active">订单列表</a>
+		</nav>
+
+		<article>
+			<!-- 快速导航 -->
+			<div class="fast_navigation">
+				<a href="order_list.html">订单列表</a> > <span>订单详情</span>
+			</div>
+
+			<!-- 基本信息 -->
+			<div class="detail_card">
+				<div class="detail_card_title">基本信息</div>
+				<div class="detail_card_line">
+					<span>昵称：</span>
+					<span>背着吉他的蝙蝠女侠</span>
+				</div>
+				<div class="detail_card_line">
+					<span>情说号：</span>
+					<span>13840293010</span>
+				</div>
+				<div class="detail_card_line">
+					<span>支付方式：</span>
+					<span>支付宝</span>
+				</div>
+			</div>
+
+			<!-- 套餐相关 -->
+			<!-- <div class="detail_card">
+				<div class="detail_card_title">套餐相关</div>
+				<div class="detail_card_line package_correlation">
+					<p>共需服务：<label>5次</label></p>
+					<p>已服务：<label>2次</label></p>
+					<p>还需服务：<label style="color: #F77543;">3次</label></p>
+					<p>首次服务时间：<label>2019-10-03 23：11</label></p>
+				</div>
+			</div> -->
+
+			<!-- 订单信息 -->
+			<div class="detail_card">
+				<div class="detail_card_title">订单信息</div>
+				<div class="detail_card_line">
+					<div>
+						<span>订单编号：</span>
+						<span>403920391039024930</span>
+					</div>
+					<div>
+						<span>创建时间：</span>
+						<span>2017-10-08 00：23：11</span>
+					</div>
+				</div>
+				<div class="detail_card_line">
+					<div>
+						<span>付款时间：</span>
+						<span>2017-10-08 00：23：11</span>
+					</div>
+					<div>
+						<span>完成时间：</span>
+						<span>2017-10-08 00：23：11</span>
+					</div>
+				</div>
+				<div class="detail_cont">
+					<!-- 立即咨询 -->
+					<div class="at_once">
+						<ul class="detail_title">
+							<li>内容</li>
+							<li>来源</li>
+							<li>类型</li>
+							<li>服务形式</li>
+							<li>单价</li>
+							<li>服务时间</li>
+							<li>服务次数</li>
+							<li>交易状态</li>
+						</ul>
+						<ul class="detail_list">
+							<li>
+								<div class="pic"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg" alt=""></div>
+								<div class="cont">精神病患者</div>
+							</li>
+							<li>系统平台</li>
+							<li>立即咨询</li>
+							<li>文字+语音条</li>
+							<li>¥8/分钟</li>
+							<li>60分钟</li>
+							<li>1次</li>
+							<li>待服务</li>
+						</ul>
+					</div>
+					<!-- 套餐咨询 -->
+					<!-- <div class="set_meal">
+						<ul class="detail_title">
+							<li>内容</li>
+							<li>来源</li>
+							<li>类型</li>
+							<li>服务形式</li>
+							<li>类别</li>
+							<li>单价</li>
+							<li>服务次数</li>
+							<li>折扣</li>
+							<li>交易状态</li>
+						</ul>
+						<ul class="detail_list">
+							<li>
+								<div class="pic"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg" alt=""></div>
+								<div class="cont">精神病患者</div>
+							</li>
+							<li>系统平台</li>
+							<li>立即咨询</li>
+							<li>文字</li>
+							<li>婚姻家庭</li>
+							<li>¥420/60分钟</li>
+							<li>1次</li>
+							<li>7折</li>
+							<li>待服务</li>
+						</ul>
+					</div> -->
+				</div>
+				<div>
+					<p class="raw_price">原价：<span>¥800.00</span></p>
+					<p class="sum_price">总价：<span>¥600.00</span></p>
+					<p class="actual_receipt">实收：<span>¥336.00</span></p>
+				</div>
+			</div>
+
+			<!-- 咨询记录 -->
+			<div class="detail_card">
+				<div class="detail_card_title">咨询记录</div>
+				<div class="search_record">
+					<ul class="record_list">
+						<li class="list_top">
+							<span>记录单号：3029020392020</span>
+							<span>预约时间：<em class="order_time">未选择</em></span>
+							<!-- 有咨询记录时展示 -->
+							<a href="javascript:;" class="change_record" onclick="editRecord($(this))" style="display: none;">修改记录</a>
+						</li>
+						<li class="list_cont">
+							<!-- 无咨询记录 -->
+							<div class="operate">
+								<label>操作</label>
+								<a href="javascript:;" onclick="editRecord($(this))">提交咨询记录</a>
+								<a href="javascript:;">选择时间</a>
+							</div>
+							<!-- 有咨询记录 -->
+							<!-- <div class="record_cont">
+								<div class="title">咨询记录</div>
+								<div class="content">
+									本次咨询情况：来访者情绪比较激动  后续咨询方案：多和来访者接触，做沟通  下次咨询时间：2018-12-13 9:00
+								</div>
+								<div class="pic_list">
+									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
+									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
+									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
+									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
+									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
+								</div>
+							</div> -->
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</article>
+	</section>
+
+	<!-- 咨询记录弹窗 -->
+	<div class="record_modal" style="display: none;">
+		<div class="modal_cont">
+			<div class="title">提交咨询记录<a href="javascript:;"></a></div>
+			<div class="content">
+				<p class="big_tool">诊断记录（内容仅专家可见，不对客户开放）</p>
+				<textarea class="record_text"></textarea>
+				<span class="text_num"><em>0</em>/2000</span>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+	<script type="text/javascript" src="js/simpleAlert.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+			
+		})
+
+		//提交和修改咨询记录
+		function editRecord($obj) {
+			var parentObj = $obj.parents('.record_list'),           //最大的父元素
+				changeBtn = parentObj.find('.change_record'),       //修改记录按钮
+				operateObj = parentObj.find('.operate'),            //无咨询记录时的对象
+				recordObj = parentObj.find('.record_cont'),         //有咨询记录时的对象
+				recordObjLen = recordObj.length;                    //有咨询记录时的对象的长度
+
+			if (recordObjLen) { //无咨询记录
+
+			} else { //有咨询记录，修改记录
+
+			}
+		}
+		
+		function alertTool(text) {
+			var onlyChoseAlert = simpleAlert({
+		        "content": text,
+		        "buttons": {
+		            "确定": function() {
+		                onlyChoseAlert.close();
+		            }
+		        }
+		    })
+		}
+	</script>
+</body>
+</html>
