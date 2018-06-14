@@ -5,6 +5,16 @@
 	<title>情说订单-详情</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/simpleAlert.css">
+	<link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css">
+	<style type="text/css">
+		.lq-datetimepick {
+			left: -480px !important;
+			top: 50px !important;
+		}
+		.datetime-arr {
+		    background: url(./images/pop-tips-info-arr.gif) no-repeat 0 0;
+		}
+	</style>
 </head>
 <body>
 	<header>
@@ -143,7 +153,7 @@
 			<div class="detail_card">
 				<div class="detail_card_title">咨询记录</div>
 				<div class="search_record">
-					<ul class="record_list">
+					<ul class="record_list" data-id="101">
 						<li class="list_top">
 							<span>记录单号：3029020392020</span>
 							<span>预约时间：<em class="order_time">未选择</em></span>
@@ -155,7 +165,7 @@
 							<div class="operate">
 								<label>操作</label>
 								<a href="javascript:;" onclick="editRecord($(this))">提交咨询记录</a>
-								<a href="javascript:;">选择时间</a>
+								<a href="javascript:;" onclick="chooseTime($(this))">选择时间</a>
 							</div>
 							<!-- 有咨询记录 -->
 							<!-- <div class="record_cont">
@@ -164,10 +174,6 @@
 									本次咨询情况：来访者情绪比较激动  后续咨询方案：多和来访者接触，做沟通  下次咨询时间：2018-12-13 9:00
 								</div>
 								<div class="pic_list">
-									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
-									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
-									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
-									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
 									<a href="javascript:;"><img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg"></a>
 								</div>
 							</div> -->
@@ -180,39 +186,183 @@
 	</section>
 
 	<!-- 咨询记录弹窗 -->
-	<div class="record_modal" style="display: none;">
+	<div class="record_modal">
 		<div class="modal_cont">
-			<div class="title">提交咨询记录<a href="javascript:;"></a></div>
+			<div class="title">提交咨询记录<a href="javascript:toggleObj($('.record_modal'));"></a></div>
 			<div class="content">
 				<p class="big_tool">诊断记录（内容仅专家可见，不对客户开放）</p>
 				<textarea class="record_text"></textarea>
 				<span class="text_num"><em>0</em>/2000</span>
+				<ul class="upload_pic">
+					<a href="javascript:$('#file_head').click();" class="add_pic">
+						<p class="title">上传图片</p>
+						<p class="tool">支持png／jpg格式<br />不超过10M<br />最多上传5张</p>
+					</a>
+					<div class="cover-wrap">
+		    			<div class="">
+							<div class="popup_windows_title">
+								<span>上传图片</span>
+								<a href="javascript:;" class="close_cover-wrap" onclick="$(this).parents('.cover-wrap').fadeOut()"></a>
+							</div>
+		    				<div id="clipArea"></div>
+		    				<div class="cover_wrap_btns">
+		    					<a href="javascript:;" id="clipBtn" class="confirm_popup_windows">提交</a>'
+		    				</div>
+		    			</div>
+					</div>
+					<input type="file" id="file_head" style="display: none;">
+				</ul>
+				<p class="tool">提交后，代表已完成本次咨询</p>
+			</div>
+			<div class="btns">
+				<a href="javascript:toggleObj($('.record_modal'));">取消</a>
+				<a href="javascript:;" onclick="submitRecord($(this))" id="submitRecord" data-id="">提交</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 选择预约时间 -->
+	<div class="time_modal">
+		<div class="modal_cont">
+			<div class="title">选择时间<a href="javascript:toggleObj($('.time_modal'));"></a></div>
+			<div class="content">
+				<div class="order_bespeak">
+					<div class="bespeak_data">
+						<!-- 所有时间append的位置 -->
+					</div>
+					<div class="bespeak_time">
+						<div class="choose_time">
+							<img src="../images/icon_order_menology.png">
+							<p>日历</p>
+						</div>
+						<input type="text" name="datepicker" id="datetimepicker" class="form-control" style="display: none;" />
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<a href="javascript:toggleObj($('.time_modal'));">取消</a>
+				<a href="javascript:;" onclick="submitTime($(this))" id="submitTime", data-id="">提交</a>
 			</div>
 		</div>
 	</div>
 	
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+	<script type="text/javascript" src="js/chooseTime.js"></script>
+	<script type="text/javascript" src="js/iscroll-zoom.js"></script>
+	<script type="text/javascript" src="js/lrz.all.bundle.js"></script>
+	<script type="text/javascript" src="js/jquery.photoClip.min.js"></script>
 	<script type="text/javascript" src="js/simpleAlert.js"></script>
+	<script type="text/javascript" src="js/selectUi.js"></script>
+	<script type="text/javascript" src="js/lq.datetimepick.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			
-			
+			/*字数限制*/  
+		    $(".record_text").on("input propertychange", function() {  
+		        var $this = $(this),  
+		            _val = $this.val(),  
+		            count = "";  
+		        if (_val.length > 2000) {  
+		            $this.val(_val.substring(0, 2000));  
+		        }  
+		        count = $this.val().length;  
+		        $(".text_num em").text(count);  
+		    }); 
+
+		    // 上传图片
+		    //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			var clipArea = new bjj.PhotoClip("#clipArea", {
+				size: [250, 250],// 截取框的宽和高组成的数组。默认值为[260,260]
+				outputSize: [800, 800], // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+				//outputType: "jpg", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+				file: "#file_head", // 上传图片的<input type="file">控件的选择器或者DOM对象
+				// view: ".pic_box", // 显示截取后图像的容器的选择器或者DOM对象
+				ok: "#clipBtn", // 确认截图按钮的选择器或者DOM对象
+				loadStart: function() {
+					// 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入
+					$('.cover-wrap').fadeIn();
+					console.log("照片读取中");
+				},
+				loadComplete: function() {
+					 // 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+					console.log("照片读取完成");
+				},
+				//loadError: function(event) {}, // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+				clipFinish: function(dataURL) {
+					// 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
+					$('.cover-wrap').fadeOut();
+					var str = '<li class="pic_box">';
+						str += '<img src="'+dataURL+'">';
+						str += '<a href="javascript:;" class="remove_pic" onclick="delPic($(this))"></a>';
+						str += '</li>';
+					$('.add_pic').before(str);
+					handleLen($('.pic_box')); //处理图片长度
+				}
+			});
+			//clipArea.destroy();
 		})
 
 		//提交和修改咨询记录
 		function editRecord($obj) {
 			var parentObj = $obj.parents('.record_list'),           //最大的父元素
-				changeBtn = parentObj.find('.change_record'),       //修改记录按钮
-				operateObj = parentObj.find('.operate'),            //无咨询记录时的对象
+				parentId = parentObj.attr('data-id'),               //父元素id
 				recordObj = parentObj.find('.record_cont'),         //有咨询记录时的对象
 				recordObjLen = recordObj.length;                    //有咨询记录时的对象的长度
-
-			if (recordObjLen) { //无咨询记录
-
-			} else { //有咨询记录，修改记录
-
+			if (recordObjLen) { //有咨询记录，修改记录
+				$('.record_text').val($('.record_text').val());
+				var pichtml = '';
+				recordObj.find('.pic_list').find('img').each(function(index, item) {
+					pichtml += '<li class="pic_box">';
+					pichtml += '<img src="'+item.src+'">';
+					pichtml += '<a href="javascript:;" class="remove_pic" onclick="delPic($(this))"></a>';
+					pichtml += '</li>';
+				})
+				$('.add_pic').before(pichtml);
+				handleLen($('.pic_box')); //处理图片长度
+			} else { //无咨询记录
+				$('.record_text').val('本次咨询情况：\n\n\n\n后续咨询方案：\n\n\n\n下次咨询时间：\n');
 			}
+			$(".text_num em").text($('.record_text').val().length);
+			toggleObj($('.record_modal'));
+			$('#submitRecord').attr('data-id', parentId);
+		}
+		//确认提交
+		function submitRecord($obj) {
+			var dataId = $obj.attr('data-id'),
+				listObj = $('.record_list[data-id="'+dataId+'"]'),
+				changeBtn = listObj.find('.change_record');       //修改记录按钮
+
+			var recordText = $('.record_text').val();
+			var onlyChoseAlert = simpleAlert({
+		        "content": "咨询记录提交成功！",
+		        "buttons": {
+		            "确定": function() {
+		            	changeBtn.show();
+		            	var divs = recordHtml(recordText);
+		            	listObj.find('.list_cont').html(divs);
+		                onlyChoseAlert.close();
+		                toggleObj($('.record_modal'));
+		            }
+		        }
+		    })
+		}
+
+		//删除图片
+		function delPic($obj) {
+			$obj.parents('.pic_box').remove();
+			handleLen($('.pic_box')); //处理图片长度
+		}
+
+		//咨询记录html
+		function recordHtml(text) {
+			var str = '<div class="record_cont">';
+				str += '<div class="title">咨询记录</div>';
+				str += '<div class="content">'+text+'</div>';
+				str += '<div class="pic_list">';
+				str += '<a href="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg">';
+				str += '<img src="http://img3.imgtn.bdimg.com/it/u=105706917,3815118972&fm=27&gp=0.jpg">';
+				str += '</a>';
+				str += '</div></div>'
+			return str;
 		}
 		
 		function alertTool(text) {
@@ -224,6 +374,16 @@
 		            }
 		        }
 		    })
+		}
+		function toggleObj($obj) {
+			$obj.fadeToggle(200);
+		}
+		function handleLen($obj) {
+			if ($obj.length >= 5) {
+				$('.add_pic').hide();
+			} else {
+				$('.add_pic').show();
+			}
 		}
 	</script>
 </body>

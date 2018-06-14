@@ -1258,7 +1258,9 @@ article .publish {
   border-radius: 8px;
 }
 
-.record_modal {
+.record_modal,
+.time_modal {
+  display: none;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
@@ -1267,7 +1269,8 @@ article .publish {
   left: 0;
   z-index: 666;
 }
-.record_modal .modal_cont {
+.record_modal .modal_cont,
+.time_modal .modal_cont {
   width: 900px;
   height: 650px;
   background-color: #fff;
@@ -1279,14 +1282,16 @@ article .publish {
   margin-top: -325px;
   font-family: PingFangSC-Medium;
 }
-.record_modal .modal_cont .title {
+.record_modal .modal_cont .title,
+.time_modal .modal_cont .title {
   text-align: center;
   padding: 20px 0;
   font-size: 18px;
   color: #FF5A1C;
   letter-spacing: 0;
 }
-.record_modal .modal_cont .title a {
+.record_modal .modal_cont .title a,
+.time_modal .modal_cont .title a {
   float: right;
   margin-top: 4px;
   margin-right: 26px;
@@ -1295,15 +1300,18 @@ article .publish {
   background: url("../images/icon_close_tips.png") no-repeat center;
   background-size: contain;
 }
-.record_modal .modal_cont .content {
+.record_modal .modal_cont .content,
+.time_modal .modal_cont .content {
   padding: 0 20px;
 }
-.record_modal .modal_cont .content .big_tool {
+.record_modal .modal_cont .content .big_tool,
+.time_modal .modal_cont .content .big_tool {
   font-size: 16px;
   color: #696969;
   letter-spacing: 0.53px;
 }
-.record_modal .modal_cont .content .record_text {
+.record_modal .modal_cont .content .record_text,
+.time_modal .modal_cont .content .record_text {
   width: 860px;
   height: 300px;
   background: #FFFFFF;
@@ -1315,7 +1323,8 @@ article .publish {
   color: #919191;
   letter-spacing: 0.47px;
 }
-.record_modal .modal_cont .content .text_num {
+.record_modal .modal_cont .content .text_num,
+.time_modal .modal_cont .content .text_num {
   position: absolute;
   right: 36px;
   top: 370px;
@@ -1323,8 +1332,108 @@ article .publish {
   color: #919191;
   letter-spacing: 0.4px;
 }
-.record_modal .modal_cont .content .text_num em {
+.record_modal .modal_cont .content .text_num em,
+.time_modal .modal_cont .content .text_num em {
   font-style: normal;
+}
+.record_modal .modal_cont .content .upload_pic,
+.time_modal .modal_cont .content .upload_pic {
+  overflow: hidden;
+}
+.record_modal .modal_cont .content .upload_pic li,
+.time_modal .modal_cont .content .upload_pic li {
+  float: left;
+  margin-right: 20px;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+.record_modal .modal_cont .content .upload_pic li img,
+.time_modal .modal_cont .content .upload_pic li img {
+  width: 100%;
+  border-radius: 8px;
+}
+.record_modal .modal_cont .content .upload_pic li a,
+.time_modal .modal_cont .content .upload_pic li a {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: url("../images/icon_personal data_close.png") no-repeat center;
+  background-size: contain;
+}
+.record_modal .modal_cont .content .upload_pic .add_pic,
+.time_modal .modal_cont .content .upload_pic .add_pic {
+  float: left;
+  width: 120px;
+  height: 120px;
+  background: #F9F9F9 url("../images/icon_personal data_add.png") no-repeat center 17px;
+  background-size: 20px auto;
+  border: 1px solid #E6E6E6;
+  border-radius: 4px;
+}
+.record_modal .modal_cont .content .upload_pic .add_pic .title,
+.time_modal .modal_cont .content .upload_pic .add_pic .title {
+  padding: 43px 0 0;
+  font-family: PingFangSC-Medium;
+  font-size: 12px;
+  color: #303030;
+  letter-spacing: 0.33px;
+}
+.record_modal .modal_cont .content .upload_pic .add_pic .tool,
+.time_modal .modal_cont .content .upload_pic .add_pic .tool {
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 12px;
+  color: #919191;
+  letter-spacing: 0.27px;
+  transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  /* IE 9 */
+  -moz-transform: scale(0.8);
+  /* Firefox */
+  -webkit-transform: scale(0.8);
+  /* Safari 和 Chrome */
+  -o-transform: scale(0.8);
+  /* Opera */
+}
+.record_modal .modal_cont .content > .tool,
+.time_modal .modal_cont .content > .tool {
+  padding-top: 12px;
+  font-family: PingFangSC-Medium;
+  font-size: 12px;
+  color: #919191;
+  letter-spacing: 0.4px;
+}
+.record_modal .modal_cont .btns,
+.time_modal .modal_cont .btns {
+  text-align: right;
+  padding: 10px 20px;
+}
+.record_modal .modal_cont .btns a,
+.time_modal .modal_cont .btns a {
+  display: inline-block;
+  width: 150px;
+  height: 38px;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  letter-spacing: 0;
+  border-radius: 8px;
+}
+.record_modal .modal_cont .btns a:first-child,
+.time_modal .modal_cont .btns a:first-child {
+  margin-right: 10px;
+  line-height: 36px;
+  border: 1px solid #F77543;
+  color: #F77543;
+}
+.record_modal .modal_cont .btns a:last-child,
+.time_modal .modal_cont .btns a:last-child {
+  line-height: 38px;
+  background: #F77543;
+  color: #fff;
 }
 
 .fast_navigation {
@@ -1335,6 +1444,75 @@ article .publish {
 }
 .fast_navigation a, .fast_navigation span {
   color: #919191;
+}
+
+.order_bespeak {
+  width: 860px;
+  height: 490px;
+  border: 10px solid #F7F8FA;
+  overflow: auto;
+}
+
+.order_bespeak .bespeak_data {
+  width: 770px;
+  float: left;
+}
+
+.order_bespeak .bespeak_data ul {
+  float: left;
+  width: 110px;
+}
+
+.order_bespeak .bespeak_data p {
+  padding-top: 4px;
+  width: 100%;
+  height: 42px;
+  text-align: center;
+  background: #FFDFD3;
+  border-left: 1px solid #E5E5E5;
+  border-right: 1px solid #E5E5E5;
+  font-size: 12px;
+  color: #F77543;
+  letter-spacing: 0.67px;
+}
+
+.order_bespeak .bespeak_data li {
+  width: 100%;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  background-color: #D8D8D8;
+  font-size: 12px;
+  color: #676767;
+  letter-spacing: 0.67px;
+}
+
+.order_bespeak .bespeak_data .can_bespeak {
+  border: 1px solid #E5E5E5;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.order_bespeak .bespeak_data .can_bespeak:hover, .order_bespeak .bespeak_data .can_bespeak.active_bespeak {
+  background-color: #F77543;
+  color: #fff;
+}
+
+.order_bespeak .bespeak_time {
+  position: relative;
+  margin-left: 770px;
+}
+
+.order_bespeak .bespeak_time .choose_time {
+  padding-top: 3px;
+  width: 50px;
+  height: 42px;
+  background: #5ECBD3;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 0.67px;
 }
 
 /*# sourceMappingURL=index.css.map */
